@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faisal Kirana Store - ऑनलाइन ऑर्डर फॉर्म</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            text-align: center;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Faisal Kirana Store - ऑनलाइन ऑर्डर फॉर्म</h2>
+    <form id="orderForm">
+        <label for="name">नाम:</label>
+        <input type="text" id="name" name="name" placeholder="अपना नाम दर्ज करें" required>
+
+        <label for="mobile">मोबाइल नंबर:</label>
+        <input type="tel" id="mobile" name="mobile" placeholder="10 अंकों का मोबाइल नंबर" pattern="[0-9]{10}" required>
+
+        <label for="village">गांव का नाम:</label>
+        <select id="village" name="village" required>
+            <option value="">गांव चुनें</option>
+            <option value="Deoria Budhu Khan">Deoria Budhu Khan</option>
+            <option value="Baijnathpur">Baijnathpur</option>
+            <option value="Bulakiya">Bulakiya</option>
+            <option value="Madrapali">Madrapali</option>
+            <option value="Rampur Hiraman">Rampur Hiraman</option>
+            <option value="Sahbajpur">Sahbajpur</option>
+            <option value="Vishunpura Bharat Ray">Vishunpura Bharat Ray</option>
+            <option value="Pokharbinda">Pokharbinda</option>
+            <option value="Rustampur">Rustampur</option>
+            <option value="Kesharpur">Kesharpur</option>
+        </select>
+
+        <label for="products">आवश्यक वस्तुएं:</label>
+        <textarea id="products" name="products" placeholder="उदाहरण: साबुन - 2, शैम्पू - 1, बिस्किट - 3" required></textarea>
+
+        <button type="button" onclick="sendOrder()">ऑर्डर भेजें</button>
+    </form>
+</div>
+
+<script>
+    function sendOrder() {
+        var name = document.getElementById("name").value;
+        var mobile = document.getElementById("mobile").value;
+        var village = document.getElementById("village").value;
+        var products = document.getElementById("products").value;
+
+        if(name == "" || mobile == "" || village == "" || products == "") {
+            alert("कृपया सभी फ़ील्ड्स भरें।");
+            return;
+        }
+
+        var message = "नमस्ते Faisal Kirana Store,\n\nमेरा नाम: " + name + "\nमोबाइल नंबर: " + mobile + "\nगांव: " + village + "\n\nमैं निम्नलिखित वस्तुएं ऑर्डर करना चाहता/चाहती हूं:\n" + products + "\n\nकृपया मेरी ऑर्डर की पुष्टि करें।";
+
+        var whatsappUrl = "https://wa.me/919935809076?text=" + encodeURIComponent(message);
+        window.open(whatsappUrl, '_blank');
+    }
+</script>
+<!-- <script>
+  window.location.href = "https://faishal.com";
+</script> -->
+
+
+</body>
+</html>
